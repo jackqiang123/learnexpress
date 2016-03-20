@@ -4,13 +4,10 @@
 var express = require('express');
 var app = express();
 
-app.put('/message/:id', function(req, res){
-    var mess = require('crypto')
-        .createHash('sha1')
-        .update(new Date().toDateString() + req.params.id)
-        .digest('hex');
-    res.end(mess);
+app.get('/search', function(req, res){
+    var object = req.query;
 
+    res.send(object);
 });
 
 app.listen(process.argv[2]);
